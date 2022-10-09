@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['-']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -45,7 +45,7 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = ['rest_framework', 'rest_framework.authtoken', 'drf_spectacular']
 
-MY_APPS= ['normalizers',]
+MY_APPS= ['normalizers', 'transactions']
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + MY_APPS
 
@@ -83,32 +83,35 @@ WSGI_APPLICATION = "project_base.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
+#DEFAULT DB WITH SQLITE3
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
+}
+
+
+#POSTGRESQL WITH DOCKER
+# if os.environ.get("TEST"):
+#     DATABASES = {
+#         "default": {
+#             "ENGINE": "django.db.backends.sqlite3",
+#             "NAME": BASE_DIR / "db.sqlite3",
+#         }
 #     }
-# }
+# else:
+#     DATABASES = {
+#         "default": {
+#             "ENGINE": "django.db.backends.postgresql",
+#             "NAME": os.getenv("POSTGRES_DB"),
+#             "USER": os.getenv("POSTGRES_USER"),
+#             "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
+#             "HOST": "db",
+#             "PORT": 5432,
+#         },
 
-if os.environ.get("TEST"):
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
-        }
-    }
-else:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": os.getenv("POSTGRES_DB"),
-            "USER": os.getenv("POSTGRES_USER"),
-            "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
-            "HOST": "db",
-            "PORT": 5432,
-        },
-
-    }
+#     }
 
 
 # Password validation
@@ -165,7 +168,7 @@ REST_FRAMEWORK = {
 }
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'CNAB normalizer',
+    'TITLE': 'CNAB Normalizer',
     'DESCRIPTION': 'This simply API project, developed to normalize TXT file "CNAB" to database',
     'VERSION': "1.0.0",
     'SERVE_INCLUDE_SCHEMA': False,
