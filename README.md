@@ -1,8 +1,8 @@
 # INSTRUCTIONS
 
-Make sure to have installed pyhton 3.10 or above - [https://www.python.org/downloads/source/](https://www.python.org/downloads/source/)
+Make sure to have installed pyhton 3.10 or above - https://www.python.org/downloads/source/
 
-also the package installer for python pip - [https://pypi.org/project/pip/](https://pypi.org/project/pip/)
+also the package installer for python pip - https://pypi.org/project/pip/
 
 ---
 
@@ -26,11 +26,11 @@ also the package installer for python pip - [https://pypi.org/project/pip/](http
 
        ./manage.py runserver
 
-      Access on - [http://localhost:8000/upload/](http://localhost:8000/upload/) or in a diferent port
+      Access on - http://localhost:8000/upload/ or in a diferent port
 
       At the root of the project theres a CNAB file, simply copy and upload
 
-      To access routes documentation [http://localhost:8000/api/](http://localhost:8000/upload/)docs/
+      To access routes documentation http://localhost:8000/upload/docs/
 
   **2 - Docker:**
 
@@ -42,8 +42,8 @@ also the package installer for python pip - [https://pypi.org/project/pip/](http
 
       run: docker compose up or docker-compose up
 
-      Access on - [http://localhost:8000/upload/](http://localhost:8000/upload/) or in a diferent port
+      Access on - http://localhost:8000/upload/ or in a diferent port
 
       At the root of the project theres a CNAB file, simply copy and upload
 
-      To access routes documentation [http://localhost:8000/api/](http://localhost:8000/upload/)docs/
+      To access routes documentation http://localhost:8000/upload/docs/
